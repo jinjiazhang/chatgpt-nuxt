@@ -74,7 +74,7 @@ const title = computed(
 );
 
 const model = computed(() =>
-  store.getChatModelNameById(store.chat?.model ?? "gpt-3.5-turbo")
+  store.getChatModelNameById(store.chat?.model ?? "gpt-4")
 );
 
 function enterEditing() {

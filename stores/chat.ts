@@ -263,7 +263,7 @@ export const useChatStore = defineStore("chat", () => {
           method: "post",
           headers: getHeaders(setting),
           body: JSON.stringify({
-            model: chat.value?.model ?? "gpt-3.5-turbo",
+            model: chat.value?.model ?? "gpt-4",
             messages: standardList.value,
             temperature: setting.temperature,
             stream: true,
@@ -374,7 +374,7 @@ export const useChatStore = defineStore("chat", () => {
         method: "post",
         headers: getHeaders(setting),
         body: JSON.stringify({
-          model: "gpt-3.5-turbo",
+          model: "gpt-4",
           messages: [
             {
               role: "system",

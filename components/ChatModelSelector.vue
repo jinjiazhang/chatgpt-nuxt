@@ -31,14 +31,14 @@ import type { ChatModel } from "~/types";
 
 const store = useChatStore();
 
-const model = ref<ChatModel>(store.chat?.model ?? "gpt-3.5-turbo");
+const model = ref<ChatModel>(store.chat?.model ?? "gpt-4");
 
 const chatModels: ChatModel[] = ["gpt-3.5-turbo", "gpt-4"];
 
 watch(
   () => store.chat,
   () => {
-    model.value = store.chat?.model ?? "gpt-3.5-turbo";
+    model.value = store.chat?.model ?? "gpt-4";
   },
   { deep: true }
 );

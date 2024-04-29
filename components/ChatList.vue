@@ -25,7 +25,7 @@
         @click.stop.left="closeChat(item)"
       />
     </div>
-
+<!-- 
     <div class="m-6 mb-2 text-sm text-slate-500">
       {{ $t("ChatList.images") }}
     </div>
@@ -51,6 +51,7 @@
         @click.stop.left="store.removeChat(item.id)"
       />
     </div>
+-->
   </div>
 </template>
 

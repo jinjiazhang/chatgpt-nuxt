@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import {
+import type {
   ApiRequest,
   ChatItem,
   ChatMessageExItem,

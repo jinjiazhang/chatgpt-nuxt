@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'opacity-70': !item.active }">
+  <div :class="{ 'opacity-100': !item.active }">
     <ChatMessageSystem
       v-if="item.role === 'system' && item.show"
       :item="item"

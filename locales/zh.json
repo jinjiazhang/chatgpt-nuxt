@@ -169,9 +169,9 @@
   },
   "FuncBar": {
     "chat": "新建聊天",
-    "image": "新图片",
-    "setting": "设置",
-    "github": "查看项目"
+    "image": "新建图片",
+    "setting": "设置参数",
+    "github": "项目地址"
   },
   "HotKeyHelp": {
     "title": "全局快捷键",

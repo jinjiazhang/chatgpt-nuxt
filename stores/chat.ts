@@ -61,7 +61,7 @@ export const useChatStore = defineStore("chat", () => {
 
     // 没有则创建 (create without)
     if (!chats.value.length) {
-      await createImageChat();
+      // await createImageChat();
       await createChat();
     } else if (!chat.value) {
       await openChat(chats.value[0]);
@@ -70,7 +70,7 @@ export const useChatStore = defineStore("chat", () => {
 
   async function createChat(item?: ChatOption) {
     chat.value = undefined;
-    const chatItem: ChatOption = item ?? { name: "New Chat", order: 0 };
+    const chatItem: ChatOption = item ?? { name: "New Chat", model: "gpt-4", order: 0 };
     await db.chat.put({ ...chatItem });
 
     // 加载列表并打开第一个 (load the list and open the first)

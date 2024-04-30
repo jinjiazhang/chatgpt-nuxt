@@ -42,7 +42,7 @@ async function listModels(headers: RequestHeaders) {
         permission: [],
       };
       const gpt4ModelData = {
-        id: "gpt-4",
+        id: "gpt-4-turbo",
         object: "model",
         owned_by: "",
         permission: [],

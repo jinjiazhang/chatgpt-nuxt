@@ -80,7 +80,7 @@ async function generateChatTitle(content: string) {
       method: "post",
       headers: store.getHeaders(setting),
       body: JSON.stringify({
-        model: "gpt-4",
+        model: "gpt-4-turbo",
         messages: [
           {
             role: "user",

@@ -34,7 +34,7 @@
     },
     "azureGpt4DeploymentId": {
       "label": "GPT-4モデルのデプロイ名",
-      "placeholder": "gpt-4"
+      "placeholder": "gpt-4-turbo"
     },
     "azureApiVersion": {
       "label": "Azure OpenAI Service の API バージョン",

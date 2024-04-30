@@ -39,7 +39,7 @@ function createOpenAIConfiguration(
       case "gpt-3.5-turbo":
         azureDeploymentId = azureGpt35DeploymentId;
         break;
-      case "gpt-4":
+      case "gpt-4-turbo":
         azureDeploymentId = azureGpt4DeploymentId;
         break;
     }

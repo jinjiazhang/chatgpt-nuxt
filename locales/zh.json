@@ -34,7 +34,7 @@
     },
     "azureGpt4DeploymentId": {
       "label": "GPT-4模型的部署名称",
-      "placeholder": "gpt-4"
+      "placeholder": "gpt-4-turbo"
     },
     "azureApiVersion": {
       "label": "Azure OpenAI Service 的 API 版本",
@@ -169,7 +169,7 @@
   },
   "FuncBar": {
     "chat": "新建聊天",
-    "image": "新建图片",
+    "image": "图片生成",
     "setting": "设置参数",
     "github": "项目地址"
   },

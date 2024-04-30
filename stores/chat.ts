@@ -70,7 +70,7 @@ export const useChatStore = defineStore("chat", () => {
 
   async function createChat(item?: ChatOption) {
     chat.value = undefined;
-    const chatItem: ChatOption = item ?? { name: "New Chat", model: "gpt-4", order: 0 };
+    const chatItem: ChatOption = item ?? { name: "New Chat", model: "gpt-4-turbo", order: 0 };
     await db.chat.put({ ...chatItem });
 
     // 加载列表并打开第一个 (load the list and open the first)
@@ -137,14 +137,14 @@ export const useChatStore = defineStore("chat", () => {
     if (!models.value.length) {
       await getAvailableModels();
     }
-    return models.value.findIndex((model) => model.id === "gpt-4") > -1;
+    return models.value.findIndex((model) => model.id === "gpt-4-turbo") > -1;
   }
 
   function getChatModelNameById(id: ChatModel) {
     switch (id) {
       case "gpt-3.5-turbo":
         return "GPT-3.5";
-      case "gpt-4":
+      case "gpt-4-turbo":
         return "GPT-4";
       case "dall-e":
         return "DALL·E";
@@ -263,7 +263,7 @@ export const useChatStore = defineStore("chat", () => {
           method: "post",
           headers: getHeaders(setting),
           body: JSON.stringify({
-            model: chat.value?.model ?? "gpt-4",
+            model: chat.value?.model ?? "gpt-4-turbo",
             messages: standardList.value,
             temperature: setting.temperature,
             stream: true,

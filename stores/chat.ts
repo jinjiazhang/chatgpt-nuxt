@@ -451,7 +451,7 @@ export const useChatStore = defineStore("chat", () => {
 
   function getHeaders(setting: ChatSettingItem) {
     return {
-      "x-api-type": setting.apiType,
+      "x-api-type": setting.apiType ?? "openai",
       "x-cipher-api-key": setting.apiKey ?? "",
       "x-api-host": setting.apiHost ?? "",
       "x-azure-api-version": setting.azureApiVersion ?? "",

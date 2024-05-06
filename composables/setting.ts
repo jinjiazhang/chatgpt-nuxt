@@ -20,7 +20,7 @@ export async function saveSetting(setting: ChatSettingOption) {
 }
 
 export function loadSetting(): ChatSettingItem | undefined {
-  const settingString = localStorage.getItem(key);
+  const settingString = localStorage.getItem(key) ?? "{}";
   if (settingString) {
     return JSON.parse(settingString);
   }

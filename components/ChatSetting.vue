@@ -181,10 +181,10 @@ async function save() {
   );
 
   store.showSetting = false;
-  await store.sendMessage({
-    role: "user",
-    content: i18n.t("ChatSetting.initialMessage"),
-  });
+  // await store.sendMessage({
+  //   role: "user",
+  //   content: i18n.t("ChatSetting.initialMessage"),
+  // });
 }
 </script>
 

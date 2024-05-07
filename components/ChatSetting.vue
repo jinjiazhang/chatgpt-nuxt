@@ -163,7 +163,10 @@ const setting = ref<ChatSettingOption>({
 const colorMode = useColorMode();
 
 onMounted(() => {
-  setting.value = loadSetting() ?? setting.value;
+  const value = loadSetting();
+  if (value && value.apiType) {
+    setting.value = value;
+  }
 });
 
 async function save() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-2/3 overflow-y-scroll scroll-smooth">
+  <div class="h-2/3 overflow-y-auto scroll-smooth">
     <div class="m-6 mb-2 text-sm text-slate-500">
       {{ $t("ChatList.conversations") }}
     </div>
@@ -8,14 +8,13 @@
         'group bar-btn flex justify-between dark:hover:text-gray-600',
         { 'bg-slate-200 dark:bg-gray-700': store.chat === item },
       ]"
-      v-for="item in store.chats.filter((chat) => {
-        return chat.model !== 'dall-e';
-      })"
+      v-for="item in store.chats"
       :key="item.id"
       @click="openChat(item)"
     >
       <div class="max-w-[85%] flex items-center space-x-1">
-        <IconMessage />
+        <IconMessage v-if="item.model !== 'dall-e'"/>
+        <IconPicture v-if="item.model === 'dall-e'"/>
         <span class="overflow-hidden whitespace-nowrap text-ellipsis">
           {{ item.name }}
         </span>
@@ -25,33 +24,7 @@
         @click.stop.left="closeChat(item)"
       />
     </div>
-<!-- 
-    <div class="m-6 mb-2 text-sm text-slate-500">
-      {{ $t("ChatList.images") }}
-    </div>
-    <div
-      :class="[
-        'group bar-btn flex justify-between dark:hover:text-gray-600',
-        { 'bg-slate-200 dark:bg-gray-700': store.chat === item },
-      ]"
-      v-for="item in store.chats.filter((chat) => {
-        return chat.model === 'dall-e';
-      })"
-      :key="item.id"
-      @click="openChat(item)"
-    >
-      <div class="max-w-[85%] flex items-center space-x-1">
-        <IconPicture />
-        <span class="overflow-hidden whitespace-nowrap text-ellipsis">
-          {{ item.name }}
-        </span>
-      </div>
-      <CloseOne
-        class="invisible group-hover:visible text-rose-400"
-        @click.stop.left="store.removeChat(item.id)"
-      />
-    </div>
--->
+
   </div>
 </template>
 

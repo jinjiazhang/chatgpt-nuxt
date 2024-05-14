@@ -9,7 +9,7 @@ import type {
   ChatSettingItem,
   ImageSize,
 } from "@/types";
-import {
+import type {
   CreateChatCompletionRequest,
   CreateChatCompletionResponse,
   CreateImageRequest,
@@ -99,6 +99,15 @@ export const useChatStore = defineStore("chat", () => {
     await db.transaction("rw", "chat", "message", async () => {
       await db.chat.delete(chatId);
       await clearMessages(chatId);
+    });
+    await getAllChats();
+  }
+
+  async function removeAllChat() {
+    if (!confirm(i18n.t("removeAllChatConfirm"))) return;
+    await db.transaction("rw", "chat", "message", async () => {
+      await db.chat.clear();
+      await db.message.clear();
     });
     await getAllChats();
   }
@@ -485,6 +494,7 @@ export const useChatStore = defineStore("chat", () => {
     createImageChat,
     clearMessages,
     removeChat,
+    removeAllChat,
     appendMessage: createMessage,
     sendMessage,
     sendImageRequestMessage,

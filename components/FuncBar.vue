@@ -13,15 +13,16 @@
 </template>
 
 <script setup lang="ts">
-import { Plus, Setting, Github, AddPicture } from "@icon-park/vue-next";
+import { Plus, Setting, Github, AddPicture, Delete } from "@icon-park/vue-next";
 import { useChatStore } from "@/stores/chat";
 
 const store = useChatStore();
 const funcs = [
   { type: "chat", icon: Plus },
   { type: "image", icon: AddPicture },
+  { type: "clean", icon: Delete },
   { type: "setting", icon: Setting },
-  { type: "github", icon: Github },
+  // { type: "github", icon: Github },
 ];
 
 async function clickBtn(type: string) {
@@ -31,7 +32,10 @@ async function clickBtn(type: string) {
   } else if (type === "image") {
     store.createImageChat();
     toggleSideBar();
-  } else if (type === "setting") {
+  } else if (type === "clean") {
+    store.removeAllChat();
+    toggleSideBar();
+  }else if (type === "setting") {
     store.showSetting = true;
     toggleSideBar();
   } else if (type === "github") {

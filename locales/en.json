@@ -170,6 +170,7 @@
   "FuncBar": {
     "chat": "New Chat",
     "image": "New Image",
+    "clean": "Clean Histories",
     "setting": "Setting",
     "github": "Project"
   },
@@ -183,5 +184,6 @@
   },
   "titlePrompt": "Summarize the above content within 10 words in the same language as input, and use it as the title. Do not use symbols. Begin summarizing.",
   "newTopicAlert": "New topic has started, history messages will not be involved in this conversation!",
-  "removeChatConfirm": "Are you sure you want to delete this chat?"
+  "removeChatConfirm": "Are you sure to delete this chat?",
+  "removeAllChatConfirm": "Are you sure to clean histories?"
 }

@@ -6,11 +6,11 @@ export function createAxiosInstance() {
     timeout: 1000 * 20,
     timeoutErrorMessage: "**Network connection timed out. Please try again**",
     // 使用代理，配置参考 https://axios-http.com/docs/req_config
-    // proxy: {
-    //   protocol: "http",
-    //   host: "127.0.0.1",
-    //   port: 7890,
-    // },
+    proxy: {
+      protocol: "http",
+      host: "43.156.227.108",
+      port: 3128,
+    },
   };
 
   function onRequest(config: AxiosRequestConfig) {

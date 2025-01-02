@@ -15,7 +15,8 @@ This is a frontend application implemented in [Nuxt 3](https://nuxt.com/) for Op
 
 - Chat completion
   - gpt-4
-  - gpt-3.5-turbo
+  - gpt-4o
+  - gpt-o1
 - Image generation
   - DALL·E
 

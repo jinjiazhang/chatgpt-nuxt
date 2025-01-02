@@ -151,12 +151,12 @@ export const useChatStore = defineStore("chat", () => {
 
   function getChatModelNameById(id: ChatModel) {
     switch (id) {
-      case "gpt-3.5-turbo":
-        return "GPT-3.5";
       case "gpt-4-turbo":
         return "GPT-4";
       case "gpt-4o":
         return "GPT-4o";
+      case "o1-preview":
+          return "GPT-o1";
       case "dall-e":
         return "DALL·E";
     }

@@ -33,7 +33,7 @@ const store = useChatStore();
 
 const model = ref<ChatModel>(store.chat?.model ?? "gpt-4o");
 
-const chatModels: ChatModel[] = ["gpt-3.5-turbo", "gpt-4-turbo", "gpt-4o"];
+const chatModels: ChatModel[] = ["gpt-4-turbo", "gpt-4o", "o1-preview"];
 
 watch(
   () => store.chat,

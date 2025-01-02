@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 export function createAxiosInstance() {
   const axiosRequestConfig: AxiosRequestConfig = {
     responseType: "stream",
-    timeout: 1000 * 20,
+    timeout: 1000 * 300,
     timeoutErrorMessage: "**Network connection timed out. Please try again**",
     // 使用代理，配置参考 https://axios-http.com/docs/req_config
     proxy: {

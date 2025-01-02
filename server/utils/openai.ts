@@ -13,57 +13,12 @@ function createOpenAIConfiguration(
   body?: ApiRequest
 ) {
   const useEnv = runtimeConfig.public.useEnv === "yes";
-
-  const apiType = useEnv
-    ? runtimeConfig.public.apiType
-    : (headers["x-api-type"] as ApiType);
   const apiKey = useEnv
     ? runtimeConfig.apiKey
     : aesCrypto({ message: headers["x-cipher-api-key"]!, type: "de" });
-  const apiHost = useEnv ? runtimeConfig.apiHost : headers["x-api-host"];
-  const azureApiVersion = useEnv
-    ? runtimeConfig.azureApiVersion
-    : headers["x-azure-api-version"];
-  const azureGpt35DeploymentId = useEnv
-    ? runtimeConfig.azureGpt35DeploymentId
-    : headers["x-azure-gpt35-deployment-id"]!;
-  const azureGpt4DeploymentId = useEnv
-    ? runtimeConfig.azureGpt4DeploymentId
-    : headers["x-azure-gpt4-deployment-id"]!;
-
-  // Identify the basePath of the Azure OpenAI Service from the OpenAI model name
-  let basePath = `${apiHost}/openai`;
-  if (model === "chat") {
-    let azureDeploymentId = "";
-    switch ((body as CreateChatCompletionRequest).model as ChatModel) {
-      case "gpt-3.5-turbo":
-        azureDeploymentId = azureGpt35DeploymentId;
-        break;
-      case "gpt-4-turbo":
-        azureDeploymentId = azureGpt4DeploymentId;
-        break;
-    }
-    basePath += `/deployments/${azureDeploymentId}`;
-  } else if (model === "text") {
-    // TODO: Support completion model
-  }
-
-  const azureOptions =
-    apiType === "azure"
-      ? {
-          basePath,
-          baseOptions: {
-            headers: { "api-key": apiKey },
-            params: {
-              "api-version": azureApiVersion,
-            },
-          },
-        }
-      : {};
 
   return new Configuration({
     apiKey,
-    ...azureOptions,
   });
 }
 

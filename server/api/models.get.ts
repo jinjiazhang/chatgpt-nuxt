@@ -33,40 +33,6 @@ async function listModels(headers: RequestHeaders) {
     case "openai":
       return openai.listModels();
 
-    // Generate response compatible with the list of models response from the OpenAI API.
-    case "azure":
-      const gpt35ModelData = {
-        id: "gpt-3.5-turbo",
-        object: "model",
-        owned_by: "",
-        permission: [],
-      };
-      const gpt4ModelData = {
-        id: "gpt-4-turbo",
-        object: "model",
-        owned_by: "",
-        permission: [],
-      };
-      const availableModels = [gpt35ModelData];
-      if (azureGpt4DeploymentId) {
-        availableModels.push(gpt4ModelData);
-      }
-
-      // Generate response compatible with openai.ListModelsResponse
-      const responseData = {
-        data: availableModels,
-        object: "list",
-      };
-
-      // Generate response compatible with AxiosResponse
-      return {
-        data: responseData,
-        status: 200,
-        statusText: "OK",
-        config: {},
-        request: {},
-      };
-
     // Unknown API Type
     default:
       // Generate error response compatible with AxiosResponse

@@ -464,10 +464,6 @@ export const useChatStore = defineStore("chat", () => {
     return {
       "x-api-type": setting.apiType ?? "openai",
       "x-cipher-api-key": setting.apiKey ?? "",
-      "x-api-host": setting.apiHost ?? "",
-      "x-azure-api-version": setting.azureApiVersion ?? "",
-      "x-azure-gpt35-deployment-id": setting.azureGpt35DeploymentId ?? "",
-      "x-azure-gpt4-deployment-id": setting.azureGpt4DeploymentId ?? "",
     };
   }
 
